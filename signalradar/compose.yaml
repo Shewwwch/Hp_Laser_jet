@@ -1,0 +1,28 @@
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: signalradar/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      SIGNAL_HOST: 0.0.0.0
+      DATABASE_URL: postgresql://signalradar:signalradar@db:5432/signalradar
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: signalradar
+      POSTGRES_USER: signalradar
+      POSTGRES_PASSWORD: signalradar
+    volumes:
+      - signalradar-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U signalradar"]
+      interval: 5s
+      retries: 10
+volumes:
+  signalradar-data:

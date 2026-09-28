@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#091627"><meta name="description" content="SignalRadar — поиск и проверка ранних технологических сигналов">
+<title>SignalRadar — ранние технологические сигналы</title><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">◉</span><span>signal<span class="accent">radar</span><small>ТЕХНОЛОГИЧЕСКАЯ РАЗВЕДКА</small></span></div>
+    <div class="side-label">РАБОЧАЯ ОБЛАСТЬ</div>
+    <a class="nav active" href="#workspace">▦ <span>Обзор сигналов</span></a>
+    <a class="nav" href="#method">◇ <span>Методология</span></a>
+    <a class="nav" href="#excluded">⊘ <span>Исключённые</span></a>
+    <div class="sidebar-bottom"><div class="status"><i></i> Сервис доступен</div><div>Прототип для анализа открытых источников<br>Срез: сентябрь 2026</div></div>
+  </aside>
+  <main id="workspace">
+    <header class="topbar"><div><span class="crumb">АНАЛИТИКА</span><span class="slash">/</span><span>Слабые сигналы</span></div><span class="top-pill">RESEARCH PREVIEW <b>●</b></span></header>
+    <div class="content">
+      <section class="intro"><div class="eyebrow"><span class="pulse"></span> ТЕХНОЛОГИЧЕСКИЙ МОНИТОРИНГ <span class="rule"></span> 2026</div><h1>Найдите сигнал<br><em>раньше рынка.</em></h1><p>Исследуйте зарождающиеся направления, проверьте источники и разберите логику отбора.</p></section>
+      <section class="searchbox" aria-label="Поиск направления"><form id="search-form"><label for="query">ТЕХНОЛОГИЧЕСКОЕ НАПРАВЛЕНИЕ</label><div class="search-row"><div class="input-wrap"><span aria-hidden="true">⌕</span><input id="query" name="query" value="технологии в ИИ" placeholder="Например, технологии в ИИ или робототехника" maxlength="150" required></div><button type="submit" id="search-button">Найти сигналы <span>↗</span></button></div><div class="search-foot"><div class="modes" role="group" aria-label="Источник данных"><button type="button" class="mode selected" data-mode="demo">Демо · 100 сигналов</button><button type="button" class="mode" data-mode="live">Открытый поиск · OpenAlex</button></div><span id="mode-note">Проверяемая подборка из предоставленной таблицы</span></div></form></section>
+      <div id="message" role="status" aria-live="polite"></div>
+      <section class="metrics" aria-label="Статистика"><div class="metric"><div class="metric-label">КАНДИДАТЫ <span>↗</span></div><strong id="candidate-count">—</strong><small>по вашему запросу</small></div><div class="metric"><div class="metric-label">ИСТОЧНИКИ <span>↗</span></div><strong id="source-count">—</strong><small>записей / ссылок обработано</small></div><div class="metric"><div class="metric-label">В ВЫДАЧЕ <span>↗</span></div><strong id="result-count">—</strong><small>до 15 направлений</small></div><div class="metric"><div class="metric-label">ИНДЕКС ≥ 75 <span>↗</span></div><strong id="strong-count">—</strong><small>не вероятность модели</small></div></section>
+      <section class="results"><div class="section-header"><div><div class="eyebrow muted">РЕЗУЛЬТАТЫ АНАЛИЗА</div><h2>Карта ранних сигналов</h2><p id="result-description">Ожидание запроса</p></div><span class="count-badge" id="top-badge">ТОП —</span></div><div class="table-head"><span>НАПРАВЛЕНИЕ / ТЕХНОЛОГИЯ</span><span>ОБЛАСТЬ</span><span>ИНДЕКС</span><span></span></div><div id="results-list" class="results-list"><div class="empty">Загрузка данных…</div></div></section>
+      <section id="excluded" class="details"><div class="section-header compact"><div><div class="eyebrow muted">ПРОВЕРКА ГИПОТЕЗ</div><h2>Исключённые кандидаты</h2></div></div><p class="subtle">В живом поиске показываем темы, отвергнутые как зрелые, повторяющиеся или недостаточно подтверждённые.</p><div id="excluded-list" class="exclusions"></div></section>
+      <section id="method" class="method"><div><div class="eyebrow">ПРОЗРАЧНАЯ ЛОГИКА</div><h2>Как считается сигнал</h2><p>Живой режим сопоставляет публикации последних трёх лет с исторической выборкой, выделяет повторяющиеся фразы из названий и исключает массовые либо неподтверждённые темы. Индекс учитывает новизну (37%), число свежих публикаций (29%), актуальность (16%) и число разных публикаций со ссылками (18%).</p><p>Первый год — самый ранний <b>в полученной выборке</b>, а не год появления технологии в мире. Без отдельно обученного классификатора балл не является вероятностью. Обзор статей и вывод о бизнес-выгоде остаются задачей эксперта.</p></div><div class="method-steps"><div><b>01</b> Сбор публикаций</div><div><b>02</b> Извлечение тем</div><div><b>03</b> История и фильтры</div><div><b>04</b> Проверка источников</div></div></section>
+      <footer>SignalRadar <span>·</span> Аналитический прототип <span>·</span> Источники открываются в первоисточнике</footer>
+    </div>
+  </main>
+</div>
+<div id="report-backdrop" class="backdrop" hidden><article class="report" role="dialog" aria-modal="true" aria-labelledby="report-title"><div class="report-actions"><span>АНАЛИТИЧЕСКАЯ ЗАПИСКА / SIGNALRADAR</span><div><button id="print-report" type="button">↗ Печать / PDF</button><button id="close-report" type="button" aria-label="Закрыть">✕</button></div></div><div id="report-content"></div></article></div>
+<script src="/static/app.js" defer></script></body></html>
